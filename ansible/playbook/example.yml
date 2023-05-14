@@ -1,0 +1,17 @@
+---
+- name: Copy example.txt file to remote servers
+  hosts: all
+  become: true
+  
+  tasks: 
+    - name: Copy example.txt
+      copy: 
+        src: example.txt
+        dest: /tmp/example.txt
+
+  tasks: 
+    - name: Modify example.txt file
+      lineinfile:
+        path: /tmp/example.txt
+        line: ' This is task 2 '
+       
